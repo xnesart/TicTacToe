@@ -1,0 +1,15 @@
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.deps.json
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.runtimeconfig.json
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.dll
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.pdb
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.csproj.AssemblyReference.cache
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.GeneratedMSBuildEditorConfig.editorconfig
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.AssemblyInfoInputs.cache
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.AssemblyInfo.cs
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.csproj.CoreCompileInputs.cache
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.dll
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/refint/TicTacToe.dll
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.pdb
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.genruntimeconfig.cache
+/Users/homeland/RiderProjects/TicTacToe/TicTacToe/obj/Debug/net7.0/ref/TicTacToe.dll
