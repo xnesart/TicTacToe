@@ -1,28 +1,36 @@
+
 namespace TicTacToe.Classes;
 
 public class Game
 {
-    public string[,] ArrayFill()
+    private string[,] _array;
+
+    public Game()
     {
-        string[,] array = new string[3, 3];
-        for (int i = 0; i < array.GetLength(0); i++)
+        _array = ArrayFill();
+    }
+
+private string[,] ArrayFill()
+    {
+         _array = new string[3, 3];
+        for (int i = 0; i < _array.GetLength(0); i++)
         {
-            for (int j = 0; j < array.GetLength(1); j++)
+            for (int j = 0; j < _array.GetLength(1); j++)
             {
-                array[i, j] = "5";
+                _array[i, j] = "5";
             }
         }
 
-        return array;
+        return _array;
     }
 
-    public void Print(string[,] array)
+    public void Print()
     {
-        for (int i = 0; i < array.GetLength(0); i++)
+        for (int i = 0; i < _array.GetLength(0); i++)
         {
-            for (int j = 0; j < array.GetLength(1); j++)
+            for (int j = 0; j < _array.GetLength(1); j++)
             {
-                string tmp = array[i, j];
+                string tmp = _array[i, j];
                 Console.Write($"{tmp} ");
             }
 
@@ -30,72 +38,54 @@ public class Game
         }
     }
 
-    public string[,] FillX(string[,] array, int a, int b)
+    public string[,] FillX( int a, int b)
     {
-        array[a, b] = "X";
-        return array;
+        _array[a, b] = "X";
+        
+        return _array;
     }
-
-    public string[,] FillZero(string[,] array)
+    
+    public string[,] FillZero()
     {
-        for (int i = 0; i < array.GetLength(0); i++)
+        while (true)
         {
-            for (int j = 0; j < array.GetLength(1); j++)
+            int x, y;
+            Random rnd = new Random();
+            x = rnd.Next(0, 3);
+            y = rnd.Next(0, 3);
+            if (_array[x, y] == "5")
             {
-                if (array[i, j] == "5")
-                {
-                    Random rnd = new Random();
-                    int firstValueOfArray = rnd.Next(array.GetLength(0));
-                    int secondValueOfArray = rnd.Next(array.GetLength(1));
-                    if ((i == 0 || array[i, j] == array[i - 1, j])
-                        && (i == array.GetLength(0) - 1 || array[i, j] == array[i + 1, j])
-                        && (j == 0 || array[i, j] == array[i, j - 1])
-                        && (j >= array.GetLength(1) - 1 || array[i, j] == array[i, j + 1]))
-                    {
-                        if (array[i, j] != "X")
-                        {
-                            array[i, j] = "0";
-                        }
-                    }
-                    if(array[i,j] == "5")
-                    {
-                        array[firstValueOfArray, secondValueOfArray] = "0";
-                    }
-                    return array;
-                }
+                _array[x, y] = "0";
+                
+                return _array;
             }
         }
-
-        return array;
     }
 
-    public string[,] MyTurn(string[,] array, int a, int b)
+    public void MyTurn(int a, int b)
     {
-        if (array[a, b] == "5")
+        if (_array[a, b] == "5")
         {
-            FillX(array, a, b);
+            FillX( a, b);
         }
         else
         {
             Console.WriteLine("Попробуйте другую комбинацию");
         }
-
-        return array;
     }
 
-    public string[,] CompTurn(string[,] array)
+    public void CompTurn()
     {
-        FillZero(array);
-        return array;
+         FillZero();
     }
-    public bool CheckDraw(string[,] array){
+    public bool CheckDraw(){
         int checkFive = -1;
         bool draw = false;
-        for (int i = 0; i < array.GetLength(0); i++)
+        for (int i = 0; i < _array.GetLength(0); i++)
         {
-            for (int j = 0; j < array.GetLength(1); j++)
+            for (int j = 0; j < _array.GetLength(1); j++)
             {
-                if (array[i, j] == "5")
+                if (_array[i, j] == "5")
                 {
                     checkFive += 5;
                 }
@@ -111,29 +101,35 @@ public class Game
         
         return draw;
     }
-    public bool CheckWinner(string[,] array)
+    public bool CheckWinner()
     {
         bool win = false;
-        for (int i = 0; i < array.GetLength(0); i++)
+        for (int i = 0; i < _array.GetLength(0); i++)
         {
-            for (int j = 0; j < array.GetLength(1); j++)
+            for (int j = 0; j < _array.GetLength(1); j++)
             {
-                if(array[0,0] == "X" && array[1,0] == "X" && array[2,0] == "X" ||
-                   array[0,1] == "X" && array[1,1] == "X" && array[2,1] == "X" ||
-                   array[0,2] == "X" && array[1,2] == "X" && array[2,2] == "X" ||
-                   array[0,0] == "X" && array[1,1] == "X" && array[2,2] == "X" ||
-                   array[0,2] == "X" && array[1,1] == "X" && array[2,0] == "X"
+                if(_array[0,0] == "X" && _array[1,0] == "X" && _array[2,0] == "X" ||
+                   _array[0,0] == "X" && _array[0,1] == "X" && _array[0,2] == "X" ||
+                   _array[1,0] == "X" && _array[1,1] == "X" && _array[1,2] == "X" ||
+                   _array[2,0] == "X" && _array[2,1] == "X" && _array[2,2] == "X" ||
+                   _array[0,1] == "X" && _array[1,1] == "X" && _array[2,1] == "X" ||
+                   _array[0,2] == "X" && _array[1,2] == "X" && _array[2,2] == "X" ||
+                   _array[0,0] == "X" && _array[1,1] == "X" && _array[2,2] == "X" ||
+                   _array[0,2] == "X" && _array[1,1] == "X" && _array[2,0] == "X"
                   )
                 {
                     Console.WriteLine("Вы победили");
                     win = true;
                     
                     return win;
-                } else if (array[0,0] == "0" && array[1,0] == "0" && array[2,0] == "0" ||
-                           array[0,1] == "0" && array[1,1] == "0" && array[2,1] == "0" ||
-                           array[0,2] == "0" && array[1,2] == "0" && array[2,2] == "0" ||
-                           array[0,0] == "0" && array[1,1] == "0" && array[2,2] == "0" ||
-                           array[0,2] == "0" && array[1,1] == "0" && array[2,0] == "0"
+                } else if (_array[0,0] == "0" && _array[1,0] == "0" && _array[2,0] == "0" ||
+                           _array[0,0] == "0" && _array[0,1] == "0" && _array[0,2] == "0" ||
+                           _array[1,0] == "0" && _array[1,1] == "0" && _array[1,2] == "0" ||
+                           _array[2,0] == "0" && _array[2,1] == "0" && _array[2,2] == "0" ||
+                           _array[0,1] == "0" && _array[1,1] == "0" && _array[2,1] == "0" ||
+                           _array[0,2] == "0" && _array[1,2] == "0" && _array[2,2] == "0" ||
+                           _array[0,0] == "0" && _array[1,1] == "0" && _array[2,2] == "0" ||
+                           _array[0,2] == "0" && _array[1,1] == "0" && _array[2,0] == "0"
                           )
                 { 
                     Console.WriteLine("Комп победил");
